@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-11-02T20:34:09Z",
+  "catalog_url": "https://raw.githubusercontent.com/felocru/hybrid-sdd/main/catalog/extensions.json",
+  "extensions": {
+    "hybrid-sdt": {
+      "name": "Hybrid SDT",
+      "id": "hybrid-sdt",
+      "version": "0.1.0",
+      "description": "Suite de aceptación y setup del subagente tester.",
+      "author": "Metodología Híbrida",
+      "repository": "https://github.com/felocru/hybrid-sdd",
+      "download_url": "https://github.com/felocru/hybrid-sdd/releases/download/v0.1.0/hybrid-sdt-0.1.0.zip",
+      "sha256": "75a7a5903f0ef6a99e9413f26cccd9423f98e8be2a7e6c392099ba7a1c70e789",
+      "license": "Internal",
+      "requires": {
+        "speckit_version": ">=1.2.3"
+      },
+      "tags": [
+        "hybrid",
+        "sdd",
+        "sdt"
+      ],
+      "verified": false,
+      "category": "process",
+      "effect": "read-write",
+      "provides": {
+        "commands": 2,
+        "hooks": 0
+      }
+    }
+  }
+}

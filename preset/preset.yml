@@ -1,0 +1,75 @@
+schema_version: "1.0"
+
+preset:
+  id: "hybrid-methodology"
+  name: "Metodología Híbrida de Desarrollo"
+  version: "0.1.0"
+  description: "Plantillas y addendas para Scrum + SDD + SDT con diagramas Mermaid, aceptación primero y separación Build/tester."
+  author: "Metodología Híbrida"
+  license: "Internal"
+
+requires:
+  speckit_version: ">=1.2.3"
+
+provides:
+  templates:
+    - type: "template"
+      name: "spec-template"
+      file: "templates/spec-template.md"
+      description: "Spec con casos de uso, actividad, estados, CA y NFR"
+      strategy: "replace"
+
+    - type: "template"
+      name: "plan-template"
+      file: "templates/plan-template.md"
+      description: "Plan con C4 L3, secuencia y class diagram"
+      strategy: "replace"
+
+    - type: "template"
+      name: "tasks-template"
+      file: "templates/tasks-template.md"
+      description: "Tasks de Build con aceptación externa"
+      strategy: "replace"
+
+    - type: "template"
+      name: "data-model-template"
+      file: "templates/data-model-template.md"
+      description: "Referencia para data-model.md con ER"
+      strategy: "replace"
+
+    - type: "command"
+      name: "speckit.constitution"
+      file: "commands/constitution.append.md"
+      description: "Reglas de llenado de la constitución híbrida"
+      strategy: "append"
+
+    - type: "command"
+      name: "speckit.specify"
+      file: "commands/specify.append.md"
+      description: "Reglas de diagramas y no duplicación para specify"
+      strategy: "append"
+
+    - type: "command"
+      name: "speckit.plan"
+      file: "commands/plan.append.md"
+      description: "Reglas de C4 L3, secuencia, clases y ER para plan"
+      strategy: "append"
+
+    - type: "command"
+      name: "speckit.tasks"
+      file: "commands/tasks.append.md"
+      description: "Reglas de aceptación externa y caja blanca para tasks"
+      strategy: "append"
+
+    - type: "command"
+      name: "speckit.implement"
+      file: "commands/implement.append.md"
+      description: "Reglas de no TDD y no tocar aceptación para implement"
+      strategy: "append"
+
+tags:
+  - "hybrid"
+  - "sdd"
+  - "sdt"
+  - "mermaid"
+  - "vaadin"

@@ -1,0 +1,32 @@
+schema_version: "1.0"
+
+bundle:
+  id: "hybrid-sdd"
+  name: "Hybrid SDD"
+  version: "0.1.0"
+  role: "developer"
+  description: "Metodología Híbrida: preset de especificaciones, plan y tareas, más la extensión de aceptación SDT."
+  author: "Metodología Híbrida"
+  license: "Internal"
+
+requires:
+  speckit_version: ">=1.2.3"
+  tools: []
+  mcp: []
+
+provides:
+  extensions:
+    - id: "hybrid-sdt"
+      version: "0.1.0"
+
+  presets:
+    - id: "hybrid-methodology"
+      version: "0.1.0"
+      priority: 5
+      strategy: "append"
+
+tags:
+  - "hybrid"
+  - "sdd"
+  - "sdt"
+  - "acceptance"

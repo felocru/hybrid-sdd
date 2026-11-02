@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-11-02T20:34:09Z",
+  "catalog_url": "https://raw.githubusercontent.com/felocru/hybrid-sdd/main/catalog/bundles.json",
+  "bundles": {
+    "hybrid-sdd": {
+      "name": "Hybrid SDD",
+      "id": "hybrid-sdd",
+      "version": "0.1.0",
+      "description": "Bundle de la Metodología Híbrida: preset y extensión SDT.",
+      "author": "Metodología Híbrida",
+      "repository": "https://github.com/felocru/hybrid-sdd",
+      "download_url": "https://github.com/felocru/hybrid-sdd/releases/download/v0.1.0/hybrid-sdd-0.1.0.zip",
+      "sha256": "70f0b14e1e46dde3c4a01ec9bc17815247b9da29f331dc87612bff03773e325f",
+      "license": "Internal",
+      "requires": {
+        "speckit_version": ">=1.2.3"
+      },
+      "tags": [
+        "hybrid",
+        "sdd",
+        "sdt"
+      ],
+      "verified": false,
+      "role": "developer",
+      "provides": {
+        "extensions": 1,
+        "presets": 1,
+        "steps": 0,
+        "workflows": 0
+      }
+    }
+  }
+}

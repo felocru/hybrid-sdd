@@ -1,0 +1,34 @@
+schema_version: "1.0"
+
+extension:
+  id: "hybrid-sdt"
+  name: "Hybrid SDT"
+  version: "0.1.0"
+  description: "Comandos y subagente para generar la suite de aceptación en contexto aislado."
+  author: "Metodología Híbrida"
+  license: "Internal"
+
+requires:
+  speckit_version: ">=1.2.3"
+
+provides:
+  commands:
+    - name: "speckit.hybrid-sdt.sdt-test"
+      file: "commands/speckit.hybrid-sdt.sdt-test.md"
+      description: "Genera la suite de aceptación/E2E/carga para la feature activa en contexto aislado"
+
+    - name: "speckit.hybrid-sdt.setup"
+      file: "commands/speckit.hybrid-sdt.setup.md"
+      description: "Instala el subagente sdt-tester en .opencode/agents"
+
+  scripts:
+    - name: "install-agent"
+      file: "scripts/install-agent.sh"
+      description: "Copia el subagente sdt-tester a .opencode/agents"
+      runtimes: [bash]
+
+tags:
+  - "sdt"
+  - "acceptance"
+  - "testing"
+  - "opencode"
