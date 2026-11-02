@@ -2,8 +2,8 @@
 
 ## Publicar
 
-1. Crea el repositorio `felocru/hybrid-sdd`.
-2. Crea el tag `v0.1.0` y un GitHub Release.
+1. Repositorio: `felocru/hybrid-sdd`.
+2. Release: `v0.1.0` (https://github.com/felocru/hybrid-sdd/releases/tag/v0.1.0).
 3. Sube a ese release:
 
 ```text

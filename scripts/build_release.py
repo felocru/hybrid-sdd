@@ -141,8 +141,8 @@ def write_release(repo: str, tag: str, hashes: dict[str, str]) -> None:
 
 ## Publicar
 
-1. Crea el repositorio `{repo}`.
-2. Crea el tag `{tag}` y un GitHub Release.
+1. Usa el repositorio `{repo}`.
+2. Crea o verifica el tag `{tag}` y el GitHub Release.
 3. Sube a ese release:
 
 ```text
