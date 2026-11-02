@@ -112,6 +112,6 @@ El primer comando genera los zips. El segundo genera los catálogos y `RELEASE.m
 
 ## Advertencias
 
-- Las plantillas son una adaptación de Spec Kit, no las oficiales.
+- Las plantillas son una extensión de Spec Kit para agregarles diagramas de software.
 - El bundle no incrusta el preset, la extensión ni el agente; los componentes se resuelven desde catálogos o instalación previa.
 - `AGENTS.md` contiene los comandos operativos de pruebas; la constitución no los duplica.
