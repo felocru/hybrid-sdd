@@ -8,6 +8,26 @@ Incluye:
 - **Extensión `hybrid-sdt` v0.1.0**: comando de aceptación en contexto aislado y setup del subagente `sdt-tester`.
 - **Bundle `hybrid-sdd` v0.1.0**: composición del preset y la extensión.
 
+## Requisitos previos
+
+- Spec Kit CLI 1.2.3 o superior.
+- Un proyecto inicializado. Desde el directorio padre:
+
+```bash
+specify init mi-proyecto --integration opencode
+cd mi-proyecto
+```
+
+También puedes crear el directorio e inicializar dentro:
+
+```bash
+mkdir mi-proyecto
+cd mi-proyecto
+specify init --here --integration opencode
+```
+
+Ejecuta los comandos de catálogo desde la **raíz del proyecto**. Los `catalog add` son por proyecto: deben repetirse en cada proyecto nuevo.
+
 ## Instalación desde catálogo
 
 ```bash
@@ -31,11 +51,13 @@ Después del bundle, instala el agente una vez:
 
 El bundle no copia `.opencode/agents/sdt-tester.md`; el comando de setup lo instala desde la extensión.
 
-## Instalación local
+## Instalación local (desarrollo)
+
+Desde la raíz de tu proyecto Spec Kit, apuntando al checkout de este repositorio:
 
 ```bash
-specify preset add --dev ./preset --priority 5
-specify extension add ./extension/hybrid-sdt --dev
+specify preset add --dev /ruta/a/hybrid-sdd/preset --priority 5
+specify extension add /ruta/a/hybrid-sdd/extension/hybrid-sdt --dev
 /speckit.hybrid-sdt.setup
 ```
 
