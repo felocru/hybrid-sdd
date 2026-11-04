@@ -11,45 +11,27 @@ Incluye:
 ## Requisitos previos
 
 - Spec Kit CLI 1.2.3 o superior.
-- Un proyecto inicializado. Desde el directorio padre:
+- OpenCode.
+- Ejecuta la instalación desde el directorio padre del proyecto. Cambia `mi-proyecto` por el nombre que quieras.
+
+## Instalación en un comando
 
 ```bash
-specify init mi-proyecto --integration opencode
-cd mi-proyecto
-```
-
-También puedes crear el directorio e inicializar dentro:
-
-```bash
-mkdir mi-proyecto
-cd mi-proyecto
-specify init --here --integration opencode
-```
-
-Ejecuta los comandos de catálogo desde la **raíz del proyecto**. Los `catalog add` son por proyecto: deben repetirse en cada proyecto nuevo.
-
-## Instalación desde catálogo
-
-```bash
-specify preset catalog add https://raw.githubusercontent.com/felocru/hybrid-sdd/main/catalog/presets.json \
-  --name hybrid-catalog --install-allowed
-
-specify extension catalog add https://raw.githubusercontent.com/felocru/hybrid-sdd/main/catalog/extensions.json \
-  --name hybrid-catalog --install-allowed
-
-specify bundle catalog add https://raw.githubusercontent.com/felocru/hybrid-sdd/main/catalog/bundles.json \
-  --policy install-allowed --id hybrid-catalog
-
+specify init mi-proyecto --integration opencode && \
+cd mi-proyecto && \
+specify preset catalog add https://raw.githubusercontent.com/felocru/hybrid-sdd/main/catalog/presets.json --name hybrid-catalog --install-allowed && \
+specify extension catalog add https://raw.githubusercontent.com/felocru/hybrid-sdd/main/catalog/extensions.json --name hybrid-catalog --install-allowed && \
+specify bundle catalog add https://raw.githubusercontent.com/felocru/hybrid-sdd/main/catalog/bundles.json --policy install-allowed --id hybrid-catalog && \
 specify bundle install hybrid-sdd
 ```
 
-Después del bundle, instala el agente una vez:
+Después, dentro de OpenCode:
 
 ```text
 /speckit.hybrid-sdt.setup
 ```
 
-El bundle no copia `.opencode/agents/sdt-tester.md`; el comando de setup lo instala desde la extensión.
+Los `catalog add` son por proyecto: esta cadena los registra y deja el bundle instalado. El setup copia el subagente `sdt-tester`.
 
 ## Instalación local (desarrollo)
 
