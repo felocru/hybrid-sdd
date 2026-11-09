@@ -1,6 +1,7 @@
 ---
 description: Genera pruebas de aceptación/E2E/carga desde spec.md y contracts/ en contexto aislado.
 mode: subagent
+model: opencode-go/glm-5.3-flash#max
 steps: 30
 permissions:
   - action: read
