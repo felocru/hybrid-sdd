@@ -27,7 +27,7 @@ PRESET = ROOT / "preset"
 EXTENSION = ROOT / "extension" / "hybrid-sdt"
 BUNDLE = ROOT / "bundle"
 
-VERSION = "0.1.0"
+VERSION = "0.2.0"
 PRESET_ID = "hybrid-methodology"
 EXTENSION_ID = "hybrid-sdt"
 BUNDLE_ID = "hybrid-sdd"
@@ -98,7 +98,7 @@ def catalog_entry(
     }
     if kind == "preset":
         entry["id"] = PRESET_ID
-        entry["provides"] = {"templates": 4, "commands": 5}
+        entry["provides"] = {"templates": 5, "commands": 5}
     elif kind == "extension":
         entry["id"] = EXTENSION_ID
         entry["category"] = "process"

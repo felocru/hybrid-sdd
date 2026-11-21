@@ -65,7 +65,9 @@ En el piloto existen alias `/hybrid.setup` y `/hybrid.sdt-test`; los nombres can
 | `plan.md` | C4 L3, secuencia, clases y decisiones técnicas |
 | `data-model.md` | ER, entidades, campos y constraints |
 | `tasks.md` | Tareas de Build y caja blanca |
-| `contracts/` | Contratos técnicos de API/UI |
+| `contracts/` | Contratos técnicos de API |
+| `contracts/ui-contract.md` | Fuente única de identificadores de UI (Principio VI): tabla canónica para tester, Build y diseño |
+| `design/` | Referencia visual congelada del diseño, exportada durante el plan |
 | `AGENTS.md` | Manual operativo del agente: comandos de build/test y entorno |
 
 La constitución es normativa. `AGENTS.md` es operativo y no debe contradecirla.
@@ -109,7 +111,7 @@ El primer comando genera los zips. El segundo genera los catálogos y `RELEASE.m
 
 ## Estado
 
-- Preset, extensión y bundle en `v0.1.0`.
+- Preset, extensión y bundle en `v0.2.0`: contrato de UI con tabla de identificadores canónicos (Principio VI) y referencia visual congelada en `design/`.
 - Validación Mermaid local con `mmdc` 12+.
 - La validación semántica de las especificaciones se hace con subagentes independientes.
 - El workflow `hybrid-sdd` es la siguiente fase.

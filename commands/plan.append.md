@@ -15,8 +15,17 @@ The plan MUST include:
 - One sequence diagram (`sequenceDiagram`) for the key technical flow.
 - One domain class diagram (`classDiagram`) for domain entities and relationships.
 - Links to contracts in `contracts/`; do not inline the full contract.
+- `contracts/ui-contract.md` for features with user-facing UI, generated from the hybrid `ui-contract-template` (installed at `.specify/presets/hybrid-methodology/templates/ui-contract-template.md`) and including the canonical identifiers table.
 - Project Structure and Complexity Tracking.
 - `data-model.md` with an ER diagram (`erDiagram`), entities, fields, relationships, constraints, and validation rules.
+
+### UI contract and design
+
+- If the feature has user-facing UI, generate `contracts/ui-contract.md` following the hybrid `ui-contract-template`. The canonical identifiers table is mandatory: one row per interactive element or accessibility milestone with route, element, canonical name (`name`/`id`), accessible label, ARIA role, optional `data-testid`, and design layer name.
+- If a design file already exists (e.g. Penpot via its plugin MCP), import its layer names during planning and reconcile them into the canonical table BEFORE the contract is frozen: the contract canonizes and the design adopts. Rename divergent design layers to the canonical names.
+- Export the reconciled design as reference images to `specs/[###-feature]/design/`, one image per screen. This snapshot is frozen at plan time and is the only visual reference for Build; nobody consumes the live design file afterwards.
+- If no design exists, the canonical table is still mandatory; leave the design layer column as pending and keep names stable for future alignment.
+- Link `contracts/ui-contract.md` from the plan; do not inline it.
 
 ### Quality rules
 
@@ -24,4 +33,5 @@ The plan MUST include:
 - If the feature does not change components, reference the relevant C4 L2 container instead of inventing a component diagram.
 - Keep the domain class diagram and the ER diagram as separate views: domain behavior vs persistence.
 - Do not put the ER or the state diagram in `plan.md`.
+- UI identifiers are decided once in `contracts/ui-contract.md` (Principle VI); the tester and Build select or implement them verbatim and never invent or silently rename them.
 - Validate Mermaid diagrams locally before considering the plan complete; do not add CI validation.

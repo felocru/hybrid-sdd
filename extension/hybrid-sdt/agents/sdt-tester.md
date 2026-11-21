@@ -75,7 +75,9 @@ Lees únicamente:
 - la sección de testing de `.specify/memory/constitution.md`;
 - los archivos existentes en `tests/acceptance/`.
 
-No lees `plan.md`, `data-model.md`, `tasks.md` ni `src/main/`. No editas `spec.md`, `contracts/`, `plan.md`, `tasks.md` ni código de producción. Solo escribes en `tests/acceptance/`.
+No lees `plan.md`, `data-model.md`, `tasks.md` ni `src/main/`. Tampoco lees el diseño ni `design/`. No editas `spec.md`, `contracts/`, `plan.md`, `tasks.md` ni código de producción. Solo escribes en `tests/acceptance/`.
+
+Cuando la feature tiene UI, tus selectores provienen exclusivamente de la tabla de identificadores canónicos de `contracts/ui-contract.md`: rol + etiqueta accesible, o `data-testid` cuando la tabla lo declara. Si la tabla no existe, repórtalo como bloqueo y pregunta; no inventes identificadores.
 
 Generas pruebas de aceptación API, E2E y carga derivadas de los CA de negocio y de los contratos. No generas pruebas unitarias ni de integración: esas son del Build. Dejas la suite en rojo y reportas la matriz CA → test.
 

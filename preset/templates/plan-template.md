@@ -99,9 +99,11 @@ classDiagram
 
 ## Contracts
 
-- API/UI contracts: [`contracts/`](contracts/)
+- API contracts: [`contracts/`](contracts/)
+- UI contract and canonical identifiers: [`contracts/ui-contract.md`](contracts/ui-contract.md)
 - Data model and ER: [`data-model.md`](data-model.md)
 - Quickstart validation: [`quickstart.md`](quickstart.md)
+- Frozen visual reference (if a design exists): [`design/`](design/)
 
 ## Project Structure
 
@@ -113,7 +115,8 @@ specs/[###-feature]/
 ├── research.md          # Phase 0 output
 ├── data-model.md        # Phase 1 output
 ├── quickstart.md        # Phase 1 output
-├── contracts/           # Phase 1 output
+├── contracts/           # Phase 1 output (includes ui-contract.md for UI features)
+├── design/              # Phase 1 output (frozen visual reference; only if a design exists)
 └── tasks.md             # Phase 2 output
 ```
 

@@ -12,3 +12,10 @@ Verify that the acceptance suite is frozen in `tests/acceptance/` and that `task
 - If a white-box test fails, fix the implementation.
 - If the acceptance suite fails, report it; do not modify the suite.
 - Acceptance verification happens after implementation and is not a Build task.
+
+### UI identifiers and visual reference
+
+- Implement UI identifiers (`name`, `id`, accessible labels, ARIA roles, `data-testid`) verbatim from the canonical identifiers table in `contracts/ui-contract.md`. Do not invent, rename, or silently "fix" identifiers; if a row is wrong or missing, report it and stop for that screen.
+- The visual reference is the frozen snapshot in `specs/[###-feature]/design/`, not the live design file or its MCP. Compare the built screens against those images; the contract wins over the image.
+- If you cannot read images natively, spawn a subagent with an image-capable model to verify the built UI against `design/` and the accessibility rules of the UI contract.
+- Mismatches are reported, never resolved silently on either side.

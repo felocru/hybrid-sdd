@@ -10,13 +10,14 @@ Before drafting or updating the constitution, confirm with the user:
 
 Do not infer these values silently. If a value is genuinely undecided, record an explicit `TODO(<FIELD>)` item and justify it in the governance notes.
 
-Define exactly these five principles, in this order:
+Define exactly these six principles, in this order:
 
 - **I. Spec-First** — every feature starts with a specification; technology decisions belong in the plan, not in the specification.
 - **II. Diagram-First for Flows and States** — flows, states, and architecture are described primarily with Mermaid diagrams; prose captures intent, rules, validation, edge cases, non-functional requirements, and acceptance criteria without repeating the diagram.
 - **III. Acceptance-First (SDT)** — the acceptance suite is written and frozen before implementation starts; it is owned by the isolated tester role and is not part of the Build task list.
 - **IV. Isolated Test Context** — the tester reads the specification, contracts, and testing rules only; it does not read the plan, data model, or source. Build never edits the acceptance suite.
 - **V. Traceability** — every acceptance criterion maps to at least one acceptance test; every contract operation maps to a criterion or a documented internal obligation. No orphan tests and no untested acceptance criteria.
+- **VI. Single Source of UI Identity** — UI identifiers (element names, accessible labels, ARIA roles, test ids, and design layer names) have one source: `contracts/ui-contract.md` and its canonical identifiers table. Design and code align to the contract, never the reverse; the isolated tester derives its selectors exclusively from that table. The frozen visual reference lives in `design/`, not in the live design file.
 
 The constitution MUST include:
 

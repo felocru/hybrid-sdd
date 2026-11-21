@@ -970,6 +970,75 @@ def check_data_model(feature: Path, report: Report) -> None:
         )
 
 
+def check_ui_contract(feature: Path, report: Report) -> None:
+    ui_contract = read_text(feature / "contracts" / "ui-contract.md")
+    if ui_contract is None:
+        report.add(
+            SKIP,
+            "ui-contract.md",
+            "No existe contracts/ui-contract.md (feature sin UI)",
+        )
+        return
+    report.add(PASS, "ui-contract.md", "El archivo existe")
+
+    section = get_section(ui_contract, r"Identificadores can[oó]nicos")
+    if not section:
+        report.add(
+            FAIL,
+            "ui-contract.md",
+            "Falta la sección de identificadores canónicos (Principio VI)",
+        )
+        return
+    report.add(PASS, "ui-contract.md", "Sección de identificadores canónicos")
+
+    table_rows = [
+        line
+        for line in section.splitlines()
+        if line.strip().startswith("|") and line.count("|") >= 5
+    ]
+    data_rows = [
+        line
+        for line in table_rows
+        if not all(set(cell.strip()) <= set("-: ") for cell in line.split("|")[1:-1])
+    ]
+    if len(data_rows) >= 3:
+        report.add(
+            PASS,
+            "ui-contract.md",
+            "Tabla canónica con filas de datos",
+            f"{len(data_rows) - 1} elemento(s)",
+        )
+    else:
+        report.add(
+            FAIL,
+            "ui-contract.md",
+            "La tabla canónica necesita al menos una fila de datos",
+            f"{max(len(data_rows) - 1, 0)} elemento(s)",
+        )
+
+    seen: set[str] = set()
+    duplicates: list[str] = []
+    for line in data_rows[1:]:
+        cells = [cell.strip() for cell in line.split("|")[1:-1]]
+        if len(cells) < 3:
+            continue
+        name = cells[2]
+        if not name:
+            continue
+        if name in seen and name not in duplicates:
+            duplicates.append(name)
+        seen.add(name)
+    if duplicates:
+        report.add(
+            FAIL,
+            "ui-contract.md",
+            "Nombres canónicos duplicados en la tabla",
+            ", ".join(duplicates[:5]),
+        )
+    else:
+        report.add(PASS, "ui-contract.md", "Sin nombres canónicos duplicados")
+
+
 def task_lines(text: str) -> list[str]:
     return [
         line.strip()
@@ -1250,6 +1319,7 @@ def check_preset(project: Path, report: Report) -> None:
             "White-Box Tests",
         ],
         "data-model-template.md": ["erDiagram"],
+        "ui-contract-template.md": ["Identificadores canónicos"],
     }
     for name, markers in expected_templates.items():
         path = preset / "templates" / name
@@ -1693,6 +1763,7 @@ def main() -> int:
     if args.stage in ("plan", "tasks", "all"):
         check_plan(feature, report)
         check_data_model(feature, report)
+        check_ui_contract(feature, report)
     if args.stage in ("tasks", "all"):
         check_tasks(project, feature, report)
     check_cross(project, feature, report)
