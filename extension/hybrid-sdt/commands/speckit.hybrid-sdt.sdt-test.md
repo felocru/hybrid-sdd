@@ -1,7 +1,7 @@
 ---
 description: Genera la suite de aceptación/E2E/carga para la feature activa en contexto aislado.
 agent: sdt-tester
-model: opencode-go/glm-5.3-flash#max
+model: opencode-go/glm-5.3#max
 subagent: true
 ---
 

@@ -1,17 +1,17 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-11-21T20:46:57Z",
+  "updated_at": "2026-11-21T20:48:54Z",
   "catalog_url": "https://raw.githubusercontent.com/felocru/hybrid-sdd/main/catalog/presets.json",
   "presets": {
     "hybrid-methodology": {
       "name": "Metodología Híbrida de Desarrollo",
       "id": "hybrid-methodology",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "description": "Plantillas y addendas híbridas para especificación, plan y tareas.",
       "author": "Metodología Híbrida",
       "repository": "https://github.com/felocru/hybrid-sdd",
-      "download_url": "https://github.com/felocru/hybrid-sdd/releases/download/v0.2.0/hybrid-methodology-0.2.0.zip",
-      "sha256": "e4d61208ada0a5086ab08fd36074aee0cb9667c24931ee11e20242ef0c9452c5",
+      "download_url": "https://github.com/felocru/hybrid-sdd/releases/download/v0.2.1/hybrid-methodology-0.2.1.zip",
+      "sha256": "76466fc95d2fd198fa155891acc9fa9c67017d5f9bddd63a534eb983ec91d537",
       "license": "Internal",
       "requires": {
         "speckit_version": ">=1.2.3"

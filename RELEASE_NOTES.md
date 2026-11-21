@@ -1,3 +1,15 @@
+# Hybrid SDD v0.2.1
+
+El subagente tester (`speckit.hybrid-sdt.sdt-test` y `sdt-tester`) usa por defecto `opencode-go/glm-5.3#max` en lugar de `glm-5.3-flash#max`. Sin cambios funcionales en el preset respecto a 0.2.0.
+
+## Componentes
+
+- **Preset `hybrid-methodology` 0.2.1**: idéntico a 0.2.0 (bump de versión para mantener la versión única del bundle).
+- **Extensión `hybrid-sdt` 0.2.1**: modelo por defecto `glm-5.3#max` en comando y subagente.
+- **Bundle `hybrid-sdd` 0.2.1**: composición actualizada.
+
+---
+
 # Hybrid SDD v0.2.0
 
 Contrato de UI con **identificadores canónicos** como fuente única de identidad para el tester aislado, el Build y el diseño (Principio VI de la constitución).
