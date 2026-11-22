@@ -3,7 +3,7 @@ schema_version: "1.0"
 preset:
   id: "hybrid-methodology"
   name: "Metodología Híbrida de Desarrollo"
-  version: "0.2.1"
+  version: "0.2.2"
   description: "Plantillas y addendas para Scrum + SDD + SDT con diagramas Mermaid, aceptación primero y separación Build/tester."
   author: "Metodología Híbrida"
   license: "Internal"

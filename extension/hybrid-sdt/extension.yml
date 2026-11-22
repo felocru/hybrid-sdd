@@ -3,7 +3,7 @@ schema_version: "1.0"
 extension:
   id: "hybrid-sdt"
   name: "Hybrid SDT"
-  version: "0.2.1"
+  version: "0.2.2"
   description: "Comandos y subagente para generar la suite de aceptación en contexto aislado."
   author: "Metodología Híbrida"
   license: "Internal"

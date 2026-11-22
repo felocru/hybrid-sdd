@@ -23,8 +23,9 @@ The plan MUST include:
 
 - If the feature has user-facing UI, generate `contracts/ui-contract.md` following the hybrid `ui-contract-template`. The canonical identifiers table is mandatory: one row per interactive element or accessibility milestone with route, element, canonical name (`name`/`id`), accessible label, ARIA role, optional `data-testid`, and design layer name.
 - If a design file already exists (e.g. Penpot via its plugin MCP), import its layer names during planning and reconcile them into the canonical table BEFORE the contract is frozen: the contract canonizes and the design adopts. Rename divergent design layers to the canonical names.
-- Export the reconciled design as reference images to `specs/[###-feature]/design/`, one image per screen. This snapshot is frozen at plan time and is the only visual reference for Build; nobody consumes the live design file afterwards.
-- If no design exists, the canonical table is still mandatory; leave the design layer column as pending and keep names stable for future alignment.
+- If no design exists and the feature has user-facing UI, do not skip the design: after drafting `contracts/ui-contract.md` and BEFORE freezing it, create the screens in the design tool available via MCP (the project's `AGENTS.md` names the concrete tool), naming every layer with the canonical identifiers and following the contract's labels, states, and messages. The design is derived from the contract, never the reverse; gaps surfaced while creating the screens (missing screens, impossible flows) are fixed in the contract first, then the contract is frozen.
+- Export the reconciled design as reference images to `specs/[###-feature]/design/`, one image per screen (PNG for visual verification, SVG for exact token values). This snapshot is frozen at plan time and is the only visual reference for Build; nobody consumes the live design file afterwards.
+- If the design tool is unavailable, generate the contract anyway and leave the design layer column as pending; keep names stable for future alignment.
 - Link `contracts/ui-contract.md` from the plan; do not inline it.
 
 ### Quality rules

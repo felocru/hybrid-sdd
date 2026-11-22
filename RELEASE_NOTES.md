@@ -1,3 +1,17 @@
+# Hybrid SDD v0.2.2
+
+`/speckit.plan` crea el diseño cuando no existe: para features con UI, tras redactar el `ui-contract` y antes de congelarlo, el plan genera las pantallas en la herramienta de diseño vía MCP (capas nombradas con los identificadores canónicos) y exporta la referencia congelada en PNG+SVG. El diseño es un artefacto derivado del contrato; los huecos que surjan al maquetar se corrigen primero en el contrato.
+
+Antes: si no existía diseño, el plan lo saltaba y dejaba la columna "Capa" como pendiente. Ahora solo queda pendiente si la herramienta de diseño no está disponible.
+
+## Componentes
+
+- **Preset `hybrid-methodology` 0.2.2**: `plan.append` con la ruta from-scratch; export PNG+SVG documentado.
+- **Extensión `hybrid-sdt` 0.2.2**: sin cambios funcionales (bump de versión única del bundle).
+- **Bundle `hybrid-sdd` 0.2.2**: composición actualizada.
+
+---
+
 # Hybrid SDD v0.2.1
 
 El subagente tester (`speckit.hybrid-sdt.sdt-test` y `sdt-tester`) usa por defecto `opencode-go/glm-5.3#max` en lugar de `glm-5.3-flash#max`. Sin cambios funcionales en el preset respecto a 0.2.0.
