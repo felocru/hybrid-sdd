@@ -1,3 +1,17 @@
+# Hybrid SDD v0.2.3
+
+`/speckit.implement` se ejecuta como **subagente con `opencode-go/deepseek-v4.1-flash#max`** de forma durable: el frontmatter del `implement.append.md` viaja en el preset y la composición lo usa como frontmatter de mayor prioridad (los `scripts` se heredan del comando base). Antes, cualquier frontmatter local del comando se perdía en cada `preset update` / `bundle update`.
+
+Nota de composición: los demás comandos (`specify`, `plan`, `tasks`, `constitution`) y el tester (`sdt-test`, `glm-5.3#max`) no cambian.
+
+## Componentes
+
+- **Preset `hybrid-methodology` 0.2.3**: frontmatter con `model` + `subagent` para `speckit.implement`.
+- **Extensión `hybrid-sdt` 0.2.3**: sin cambios funcionales (bump de versión única del bundle).
+- **Bundle `hybrid-sdd` 0.2.3**: composición actualizada.
+
+---
+
 # Hybrid SDD v0.2.2
 
 `/speckit.plan` crea el diseño cuando no existe: para features con UI, tras redactar el `ui-contract` y antes de congelarlo, el plan genera las pantallas en la herramienta de diseño vía MCP (capas nombradas con los identificadores canónicos) y exporta la referencia congelada en PNG+SVG. El diseño es un artefacto derivado del contrato; los huecos que surjan al maquetar se corrigen primero en el contrato.

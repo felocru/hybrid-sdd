@@ -1,3 +1,9 @@
+---
+description: Execute the implementation plan by processing and executing all tasks defined in tasks.md
+model: opencode-go/deepseek-v4.1-flash#max
+subagent: true
+---
+
 ## Hybrid Methodology Implementation Rules
 
 ### Before starting
