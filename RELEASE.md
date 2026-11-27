@@ -1,15 +1,15 @@
-# Release v0.2.3
+# Release v0.3.0
 
 ## Publicar
 
 1. Usa el repositorio `felocru/hybrid-sdd`.
-2. Crea o verifica el tag `v0.2.3` y el GitHub Release.
+2. Crea o verifica el tag `v0.3.0` y el GitHub Release.
 3. Sube a ese release:
 
 ```text
-dist/hybrid-methodology-0.2.3.zip
-dist/hybrid-sdt-0.2.3.zip
-dist/hybrid-sdd-0.2.3.zip
+dist/hybrid-methodology-0.3.0.zip
+dist/hybrid-sdt-0.3.0.zip
+dist/hybrid-sdd-0.3.0.zip
 ```
 
 4. Confirma que `catalog/` esté en la rama `main`.
@@ -39,7 +39,7 @@ Después del bundle:
 ## SHA-256
 
 ```text
-51eeb68d0c641c9145af499e6cc94b67095f1780ac94f7ec4f86f542281b68e7  hybrid-methodology-0.2.3.zip
-17430331e79fa2100e883c2f91d8a8fa5c71f02e0b120cdd65234ee6617d2536  hybrid-sdt-0.2.3.zip
-dba2b9a4718c0490d264c2b5274265989c5b156de82218beb748fb25df2a7305  hybrid-sdd-0.2.3.zip
+937ac5ed452b554a5d9470ebcb6e0b34d8834ce5c86549b09e62af2284924356  hybrid-methodology-0.3.0.zip
+a9df66eebc6bf936b18a4d548bff7a4220b4b00bbff5b950c6e41d3554e4af4f  hybrid-sdt-0.3.0.zip
+854f6f9a366a700e6e239a825daa6bdc4112a171a82f058ae7b3f479e9cb0e8e  hybrid-sdd-0.3.0.zip
 ```

@@ -27,7 +27,7 @@ PRESET = ROOT / "preset"
 EXTENSION = ROOT / "extension" / "hybrid-sdt"
 BUNDLE = ROOT / "bundle"
 
-VERSION = "0.2.3"
+VERSION = "0.3.0"
 PRESET_ID = "hybrid-methodology"
 EXTENSION_ID = "hybrid-sdt"
 BUNDLE_ID = "hybrid-sdd"

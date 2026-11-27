@@ -3,7 +3,7 @@ schema_version: "1.0"
 extension:
   id: "hybrid-sdt"
   name: "Hybrid SDT"
-  version: "0.2.3"
+  version: "0.3.0"
   description: "Comandos y subagente para generar la suite de aceptación en contexto aislado."
   author: "Metodología Híbrida"
   license: "Internal"
@@ -19,12 +19,12 @@ provides:
 
     - name: "speckit.hybrid-sdt.setup"
       file: "commands/speckit.hybrid-sdt.setup.md"
-      description: "Instala el subagente sdt-tester en .opencode/agents"
+      description: "Instala el subagente sdt-tester para OpenCode (.opencode/agents) y/o Antigravity (.agents/agents)"
 
   scripts:
     - name: "install-agent"
       file: "scripts/install-agent.sh"
-      description: "Copia el subagente sdt-tester a .opencode/agents"
+      description: "Copia el subagente sdt-tester en .opencode/agents y/o .agents/agents según el arnés"
       runtimes: [bash]
 
 tags:
@@ -32,3 +32,5 @@ tags:
   - "acceptance"
   - "testing"
   - "opencode"
+  - "antigravity"
+  - "agy"

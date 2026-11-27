@@ -1,3 +1,27 @@
+# Hybrid SDD v0.3.0
+
+Soporte dual para **Antigravity CLI (`agy`)** y **OpenCode** manteniendo la fuente única de comandos y el aislamiento estricto de la Metodología Híbrida.
+
+## Qué cambia
+
+- **Subagente `sdt-tester` por arnés**:
+  - `extension/hybrid-sdt/agents/opencode/sdt-tester.md` (sin cambios funcionales para OpenCode).
+  - `extension/hybrid-sdt/agents/agy/sdt-tester.md` con frontmatter nativo de Antigravity (`subagent: true`, `mainAgent: false`, `model: inherit`, `commandExecutionPolicy: sandbox`).
+- **`install-agent.sh` multi-arnés**: autodetecta `.specify/integration.json`, `.opencode/` y `.agents/` (o acepta `--target opencode|agy|all`) para instalar `.opencode/agents/sdt-tester.md` y/o `.agents/agents/sdt-tester/agent.md`.
+- **Comandos portables**:
+  - `speckit.hybrid-sdt.setup` instruye explícitamente la ejecución del script de instalación sin depender de sintaxis exclusiva de OpenCode.
+  - `speckit.hybrid-sdt.sdt-test` agrega el protocolo explícito de delegación aislada para el Orquestador en Antigravity (`invoke_subagent` a `sdt-tester` sin pasar `plan.md`, `data-model.md`, `tasks.md`, `design/` ni `src/main/`, y validación posterior de `tests/acceptance/` y matriz `CA-n -> test`), manteniendo el frontmatter de OpenCode.
+- **Validador**: `scripts/validate_overrides.py` valida comandos híbridos tanto en `.opencode/commands/` como en `.agents/skills/speckit-*/SKILL.md`.
+- **Documentación**: guía de uso con `Orchestrator (Neon)` + `Hydrogen` + `sdt-tester` en Antigravity CLI.
+
+## Componentes
+
+- **Preset `hybrid-methodology` 0.3.0**: bump de versión única del bundle (sin cambios funcionales respecto a 0.2.3).
+- **Extensión `hybrid-sdt` 0.3.0**: soporte dual OpenCode + Antigravity CLI (`agy`).
+- **Bundle `hybrid-sdd` 0.3.0**: composición actualizada.
+
+---
+
 # Hybrid SDD v0.2.3
 
 `/speckit.implement` se ejecuta como **subagente con `opencode-go/deepseek-v4.1-flash#max`** de forma durable: el frontmatter del `implement.append.md` viaja en el preset y la composición lo usa como frontmatter de mayor prioridad (los `scripts` se heredan del comando base). Antes, cualquier frontmatter local del comando se perdía en cada `preset update` / `bundle update`.

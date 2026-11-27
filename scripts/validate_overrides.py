@@ -1361,26 +1361,56 @@ def check_preset(project: Path, report: Report) -> None:
         )
 
     expected_commands = {
-        "speckit.constitution.md": "Hybrid Methodology Constitution Rules",
-        "speckit.specify.md": "Hybrid Methodology Specification Rules",
-        "speckit.plan.md": "Hybrid Methodology Plan Rules",
-        "speckit.tasks.md": "Hybrid Methodology Task Rules",
-        "speckit.implement.md": "Hybrid Methodology Implementation Rules",
+        "speckit.constitution": "Hybrid Methodology Constitution Rules",
+        "speckit.specify": "Hybrid Methodology Specification Rules",
+        "speckit.plan": "Hybrid Methodology Plan Rules",
+        "speckit.tasks": "Hybrid Methodology Task Rules",
+        "speckit.implement": "Hybrid Methodology Implementation Rules",
     }
-    commands_dir = project / ".opencode" / "commands"
-    for name, marker in expected_commands.items():
-        path = commands_dir / name
-        if not path.is_file():
-            report.add(FAIL, "preset", f"Falta el comando compuesto {name}")
-            continue
-        if marker in path.read_text(encoding="utf-8"):
-            report.add(PASS, "preset", f"Reglas híbridas aplicadas: {name}")
-        else:
-            report.add(
-                FAIL,
-                "preset",
-                f"El comando {name} no contiene sus reglas híbridas",
-            )
+    opencode_dir = project / ".opencode" / "commands"
+    agy_skills_dir = project / ".agents" / "skills"
+    found_harness = False
+
+    if opencode_dir.is_dir():
+        found_harness = True
+        for name, marker in expected_commands.items():
+            filename = f"{name}.md"
+            path = opencode_dir / filename
+            if not path.is_file():
+                report.add(FAIL, "preset", f"Falta el comando compuesto {filename} (opencode)")
+                continue
+            if marker in path.read_text(encoding="utf-8"):
+                report.add(PASS, "preset", f"Reglas híbridas aplicadas: {filename} (opencode)")
+            else:
+                report.add(
+                    FAIL,
+                    "preset",
+                    f"El comando {filename} (opencode) no contiene sus reglas híbridas",
+                )
+
+    if agy_skills_dir.is_dir():
+        found_harness = True
+        for name, marker in expected_commands.items():
+            skill_name = name.replace(".", "-")
+            path = agy_skills_dir / skill_name / "SKILL.md"
+            if not path.is_file():
+                report.add(FAIL, "preset", f"Falta la skill compuesta {skill_name}/SKILL.md (agy)")
+                continue
+            if marker in path.read_text(encoding="utf-8"):
+                report.add(PASS, "preset", f"Reglas híbridas aplicadas: {skill_name}/SKILL.md (agy)")
+            else:
+                report.add(
+                    FAIL,
+                    "preset",
+                    f"La skill {skill_name}/SKILL.md (agy) no contiene sus reglas híbridas",
+                )
+
+    if not found_harness:
+        report.add(
+            FAIL,
+            "preset",
+            "No se encontró directorio de comandos/skills de arnés (.opencode/commands ni .agents/skills)",
+        )
 
 
 def check_constitution(project: Path, report: Report) -> None:
